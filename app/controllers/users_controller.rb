@@ -6,15 +6,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def confirm
-    @user = current_user.users.build(user_params)
-    render :new if @user.invalid?
-  end
-
   def edit
-    if params[:back]
-      @user = User.new(user_params)
-    end
   end
 
   def create

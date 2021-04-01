@@ -1,12 +1,12 @@
 <h1>Editing User</h1>
 
-<%= form_with(model: user, local: true, url:confirm_user_path) do |form| %>
-  <% if user.errors.any? %>
+<%= form_with(model: @user, local: true, url:user_path) do |form| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> 件のエラーがあります。</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> 件のエラーがあります。</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,23 +14,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="field">
