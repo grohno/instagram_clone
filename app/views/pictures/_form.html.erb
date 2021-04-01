@@ -1,7 +1,7 @@
-<%= form_with(model: picture, local: true, url:confirm_pictures_path) do |form| %>
+<%= form_with(model: picture, local: true, url:choose_new_or_edit) do |form| %>
   <% if picture.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+      <h2><%= pluralize(picture.errors.count, "error") %> 件のエラーがあります。</h2>
 
       <ul>
       <% picture.errors.full_messages.each do |message| %>
@@ -26,11 +26,6 @@
     <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div class="actions">

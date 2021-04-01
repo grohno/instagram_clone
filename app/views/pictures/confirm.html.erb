@@ -1,8 +1,28 @@
 <h1>確認画面</h1>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
-  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+
+  <div class="field">
+    <p class="label">Title:</p>
+    <p><%= @picture.title %></p>
+  </div>
+
+  <div class="field">
+    <p class="label">Content:</p>
+    <p class="content"><%= @picture.content %></p>
+  </div>
+
+  <div class="field">
+    <p class="label">Image:</p>
+    <p><%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
+  </div>
+
   <%= form.hidden_field :image_cache %>
-  <%= form.submit "投稿する" %>
+
+  <div class="actions">
+    <%= form.submit "投稿する" %>
+  </div>
 <% end %>
 <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>

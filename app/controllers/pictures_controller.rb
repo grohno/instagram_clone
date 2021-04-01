@@ -17,14 +17,15 @@ class PicturesController < ApplicationController
   end
 
   def confirm
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build(picture_params)
+    render :new if @picture.invalid?
   end
-  
+
   def edit
   end
 
   def create
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build(picture_params)
 
     respond_to do |format|
       if @picture.save
