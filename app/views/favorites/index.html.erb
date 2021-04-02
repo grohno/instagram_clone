@@ -1,0 +1,19 @@
+<h1>Favorites</h1>
+
+<ul class="picture_list">
+<% @favorites.each do |favorite| %>
+  <li>
+    <p><span>User: <%= favorite.picture.user.name %></span></p>
+    <p><span>Title:</span><%= favorite.picture.title %></p>
+    <p class="content"><span>Content:</span><%= favorite.picture.content %></p>
+    <p><%= image_tag favorite.picture.image.url %></p>
+    <p class="btn_block">
+      <%= link_to 'Show', picture_url(favorite.picture.id), class: 'btn btn-primary' %>
+      <% if favorite.picture.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_picture_path(favorite.picture.id), data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', picture_path(favorite.picture.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-primary' %>
+      <% end %>
+    </p>
+  </li>
+<% end %>
+</ul>
