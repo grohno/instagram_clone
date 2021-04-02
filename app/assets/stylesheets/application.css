@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+ * {
+     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+          -o-box-sizing: border-box;
+         -ms-box-sizing: border-box;
+             box-sizing: border-box;
+ }
+body {
+  background: #f0f2f5;
+}
+img {
+  max-width: 500px;
+  height: auto;
+}
+ol,
+ul {
+	list-style-position: inside;
+  list-style-type: none;
+  padding: 0;
+}
+.navbar-default {
+  background-color: #fff;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover {
+  color: #1877f2;
+  font-size: 36px;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav>li>a {
+  font-size: 16px;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: #1877f2;
+  text-decoration: underline;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  border-radius: 6px;
+  font-size: 17px;
+  padding: 10px;
+  border: 1px solid #dddfe2;
+  outline: none;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: 1px solid #1877f2;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1877f2;
+  border-color: #1877f2;
+}
+.btn-primary:visited,
+.btn-success:visited {
+  color: #fff;
+}
+#error_explanation {
+  margin: 30px auto 10px;
+}
+#error_explanation ul li {
+  list-style: none;
+}
+.field_with_errors {
+  width: 100%;
+}
+@media only screen and (max-width: 767px){
+  .navbar-default .navbar-brand {
+    font-size: 5vw;
+  }
+  .navbar-default .navbar-nav>li {
+    border-bottom: 1px solid #e7e7e7;
+  }
+  .navbar-default .navbar-nav>li:last-child {
+    border-bottom: none;
+  }
+}

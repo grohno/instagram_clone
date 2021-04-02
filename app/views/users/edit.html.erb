@@ -41,7 +41,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '編集', data: { confirm: '本当に編集していいですか？' } %>
   </div>
 <% end %>
 

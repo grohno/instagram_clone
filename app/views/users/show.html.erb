@@ -1,8 +1,12 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
-<p>プロフィール画像: <%= image_tag @user.image.url %></p>
-
-
+<p>プロフィール画像:
+  <% if @user.image.url != nil %>
+  <%= image_tag @user.image.url %>
+  <% else %>
+  まだ登録されていません
+  <% end %>
+</p>
 <% if @user.id == current_user.id %>
-  <%= link_to 'Edit', edit_user_path(@user), data: { confirm: '本当に編集していいですか？' } %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
