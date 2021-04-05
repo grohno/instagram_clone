@@ -1,5 +1,7 @@
-<h1>New Picture</h1>
+<h1 class="insta_f2 text-center">New Picture</h1>
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Back', pictures_path %>
+<div class="text-center picture_show bottom_btn_block">
+    <span class="material-icons">reply</span><%= link_to 'Back', pictures_path %>
+</div>

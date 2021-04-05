@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<p class="text-center"><%= link_to '投稿する', new_picture_path, class: "submit btn btn-info btn-lg" %></p>
+<h1 class="insta_f2 text-center">Pictures</h1>
 
-<h1>Pictures</h1>
-
-<ul class="picture_list">
+<ul class="picture_list row">
 <% @pictures.each do |picture| %>
-  <li>
-    <p><span>User: <%= picture.user.name %></span></p>
-    <p><span>Title:</span><%= picture.title %></p>
-    <p class="content"><span>Content:</span><%= picture.content %></p>
+  <li class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="upper flex">
+      <p class="item"><span class="material-icons camera">camera_enhance</span><span class="heading">User: <%= picture.user.name %></span></p>
+      <p class="btn_block item">
+        <span class="material-icons">important_devices</span><%= link_to 'Show', picture %>
+        <% if picture.user_id == current_user.id %>
+          <span class="material-icons">edit</span><%= link_to 'Edit', edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' } %>
+          <span class="material-icons">delete</span><%= link_to 'Destroy', picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+        <% end %>
+      </p>
+    </div>
     <p><%= image_tag picture.image.url %></p>
-    <p class="btn_block">
-      <%= link_to 'Show', picture, class: 'btn btn-primary' %>
-      <% if picture.user_id == current_user.id %>
-        <%= link_to 'Edit', edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-primary' %>
-      <% end %>
-    </p>
+    <div class="lower">
+      <p><span class="heading">Title:</span><%= picture.title %></p>
+      <p class="content"><span class="heading">Content:</span><%= picture.content %></p>
+    </div>
   </li>
 <% end %>
 </ul>
-
-<br>
-
-<%= link_to 'New Picture', new_picture_path %>

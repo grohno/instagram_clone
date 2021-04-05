@@ -1,0 +1,84 @@
+.sign_form {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0 20px 20px;
+  margin-top: 30px;
+}
+.sign_form p {
+  margin-bottom: 10px;
+}
+.sign_form p:last-child {
+  margin-bottom: 0;
+}
+.sign_form input[type="text"],
+.sign_form input[type="email"],
+.sign_form input[type="password"] {
+  width: 100%;
+}
+.user_page h1 {
+  margin-bottom: 30px;
+}
+.user_page p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.user_page p span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.user_page p img {
+  border-radius: 100px;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+.user_page.edit .field {
+  margin-bottom: 20px;
+}
+.user_page.edit label {
+  display: block;
+  margin-bottom: 10px;
+}
+.user_page.edit input[type="text"],
+.user_page.edit input[type="email"],
+.user_page.edit input[type="password"], {
+  width: 80%;
+}
+.user_page.edit input[type="file"] {
+  border: 1px solid #ccc;
+  padding: 10px 30px;
+  font-size: 16px;
+}
+.user_page.edit img {
+  border-radius: 100px;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.user_page.edit .back {
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 767px){
+  .user_page .actions {
+    text-align: center;
+  }
+  .user_page.edit input[type="text"],
+  .user_page.edit input[type="email"],
+  .user_page.edit input[type="password"], {
+    width: 100%;
+  }
+  .user_page p img,
+  .user_page.edit img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+  }
+  .user_page.edit input[type="file"] {
+      padding: 10px;
+      font-size: 14px;
+  }
+
+}

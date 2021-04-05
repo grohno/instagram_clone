@@ -1,48 +1,49 @@
-<h1>Editing User</h1>
+<article class="user_page edit col-sm-12 col-md-8 col-md-offset-2">
+  <h1>プロフィール 編集</h1>
 
-<%= form_with(model: @user, local: true, url:user_path) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> 件のエラーがあります。</h2>
+  <%= form_with(model: @user, local: true, url:user_path) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation" class="alert alert-info text-center">
+        <p class="fw_b"><%= pluralize(@user.errors.count, "件") %> のエラーがあります。</p>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit '編集する', data: { confirm: '本当に編集していいですか？' }, class: "submit btn btn-primary btn-lg" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit '編集', data: { confirm: '本当に編集していいですか？' } %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @user %>
+  <p class="text-center back"><%= link_to 'プロフィールへ戻る', @user, class: "submit btn btn-primary btn-lg" %></p>
+</article>

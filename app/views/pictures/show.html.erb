@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @picture.title %>
-</p>
+<ul class="picture_list row">
+  <li class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="upper flex">
+      <p class="item"><span class="material-icons camera">camera_enhance</span><span class="heading">User: <%= @picture.user.name %></span></p>
+      <p class="btn_block item">
+        <% unless @picture.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <span class="material-icons favorite">favorite</span><%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete %>
+          <% else %>
+            <span class="material-icons favorite_border">favorite_border</span><%= link_to 'お気に入りにする', favorites_path(picture_id: @picture.id), method: :post %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+    <p><%= image_tag @picture.image.url %></p>
+    <div class="lower">
+      <p><span class="heading">Title:</span><%= @picture.title %></p>
+      <p class="content"><span class="heading">Content:</span><%= @picture.content %></p>
+    </div>
+  </li>
+</ul>
 
-<p>
-  <strong>Content:</strong>
-  <%= @picture.content %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @picture.image.url %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @picture.user.name %>
-</p>
-
-<% unless @picture.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post %>
+<div class="text-center picture_show bottom_btn_block">
+  <% if @picture.user_id == current_user.id %>
+    <span class="material-icons">edit</span><%= link_to 'Edit', edit_picture_path(@picture) %>  |
   <% end %>
-<% end %>
-
-<% if @picture.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_picture_path(@picture) %> |
-<% end %>
-<%= link_to 'Back', pictures_path %>
+    <span class="material-icons">reply</span><%= link_to 'Back', pictures_path %>
+</div>

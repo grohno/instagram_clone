@@ -1,12 +1,14 @@
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス: <%= @user.email %></p>
-<p>プロフィール画像:
-  <% if @user.image.url != nil %>
-  <%= image_tag @user.image.url %>
-  <% else %>
-  まだ登録されていません
+<article class="user_page col-sm-12 col-md-8 col-md-offset-2 text-center">
+  <h1><%= @user.name %>のページ</h1>
+  <p><span>メールアドレス:</span><%= @user.email %></p>
+  <p><span>プロフィール画像:</span>
+    <% if @user.image.url != nil %>
+    <%= image_tag @user.image.url %>
+    <% else %>
+    まだ登録されていません
+    <% end %>
+  </p>
+  <% if @user.id == current_user.id %>
+    <%= link_to '編集画面へ', edit_user_path(@user), class: "submit btn btn-primary btn-lg" %>
   <% end %>
-</p>
-<% if @user.id == current_user.id %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+</article>

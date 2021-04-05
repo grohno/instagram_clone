@@ -1,7 +1,7 @@
 <%= form_with(model: picture, local: true, url:choose_new_or_edit) do |form| %>
   <% if picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> 件のエラーがあります。</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(picture.errors.count, "件") %> のエラーがあります。</h2>
 
       <ul>
       <% picture.errors.full_messages.each do |message| %>
@@ -11,24 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <ul class="picture_list row">
+    <li class="col-sm-12 col-md-10 col-md-offset-1 form">
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+      <div class="field">
+        <%= form.label :content %>
+        <%= form.text_area :content %>
+      </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
+      <div class="field">
+        <%= form.label :image %>
+        <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+        <%= form.file_field :image %>
+        <%= form.hidden_field :image_cache %>
+      </div>
+    </li>
+  </ul>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-center">
+    <%= form.submit :class => "submit btn btn-info btn-lg" %>
   </div>
 <% end %>

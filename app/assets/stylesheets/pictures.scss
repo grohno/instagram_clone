@@ -1,0 +1,83 @@
+.content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.picture_list li {
+  border: 1px solid #dddfe2;
+  background: #fff;
+  margin-top: 30px;
+  padding: 0;
+}
+.picture_list li p {
+  vertical-align: middle;
+  font-size: 14px;
+}
+.picture_list li span {
+  vertical-align: middle;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.picture_list li .upper,
+.picture_list li .lower {
+  padding: 10px;
+}
+.picture_list li .material-icons.camera {
+  background: linear-gradient(45deg,#fda948 13%,#f66748 21%,#ec3653 64%,#c13a9c 84%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 200%;
+  margin-right: 7px;
+}
+.picture_list li .upper .btn_block {
+  text-align: right;
+}
+.picture_list li .upper .btn_block a {
+  margin-right: 5px;
+}
+.picture_list li .upper .btn_block .material-icons {
+  color: #23527c;
+  font-size: 150%;
+  margin-right: 3px;
+}
+.picture_list li .upper .btn_block .material-icons.favorite {
+  color: #f66748;
+}
+.picture_show.bottom_btn_block {
+  margin-top: 30px;
+  font-size: 16px;
+}
+.picture_show.bottom_btn_block .material-icons {
+  vertical-align: bottom;
+  margin-right: 5px;
+  color: #23527c;
+}
+.picture_list li.form {
+  padding: 20px;
+}
+.picture_list li.form .field {
+  margin-bottom: 20px;
+}
+.picture_list li.form .field label {
+  font-size: 16px;
+}
+.picture_list li.form .field:last-child {
+  margin-bottom: 0;
+}
+.picture_list li.form input,
+.picture_list li.form textarea {
+  display: block;
+  width: 100%;
+}
+.picture_list li.form textarea {
+  height: 140px;
+}
+
+
+
+@media only screen and (max-width: 767px){
+  .picture_list li,
+  .picture_list li.form {
+    padding: 10px;
+  }
+}

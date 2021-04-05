@@ -14,6 +14,8 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
  * {
      -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -22,10 +24,51 @@
              box-sizing: border-box;
  }
 body {
-  background: #f0f2f5;
+  background: #FAFAFA;
+	font-family: Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" ,  "メイリオ" , Meiryo , "Meiryo UI" , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+  padding-bottom: 30px;
 }
+.insta_f1 {
+  font-family: 'Pacifico', cursive;
+}
+.insta_f2 {
+  font-family: 'Pacifico', cursive;
+}
+/* Material icons */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  /* WebKit */
+  -webkit-font-smoothing: antialiased;
+  /* Chrome、Safari */
+  text-rendering: optimizeLegibility;
+  /* Firefox */
+  -moz-osx-font-smoothing: grayscale;
+  /* IE*/
+  font-feature-settings: 'liga';
+}
+/* Material icons size */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+/* Material icons dark color */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+/* Material icons light color */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
 img {
-  max-width: 500px;
+  width: 100%;
+  max-width: 1000px;
   height: auto;
 }
 ol,
@@ -34,17 +77,35 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.flash_message {
+  margin: 10px 0;
+}
+header {
+  padding: 10px 0;
+}
 .navbar-default {
   background-color: #fff;
+  padding: 10px 0;
 }
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:hover {
-  color: #1877f2;
-  font-size: 36px;
+  height: auto;
+  color: #222;
+  font-size: 40px;
   font-weight: bold;
+  background: linear-gradient(45deg,#fda948 13%,#f66748 21%,#ec3653 64%,#c13a9c 84%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 28px;
 }
 .navbar-default .navbar-nav>li>a {
-  font-size: 16px;
+  font-size: 14px;
 }
 .navbar-default .navbar-nav>li>a:hover {
   color: #1877f2;
@@ -76,7 +137,11 @@ textarea:focus {
   color: #fff;
 }
 #error_explanation {
-  margin: 30px auto 10px;
+  margin: 30px auto;
+}
+#error_explanation .fw_b {
+  font-weight: bold;
+  font-size: 18px;
 }
 #error_explanation ul li {
   list-style: none;
@@ -85,8 +150,12 @@ textarea:focus {
   width: 100%;
 }
 @media only screen and (max-width: 767px){
-  .navbar-default .navbar-brand {
-    font-size: 5vw;
+  .flex {
+    flex-wrap: wrap;
+  }
+  .navbar-default .navbar-brand,
+  .navbar-default .navbar-brand:hover {
+    font-size: 6vw;
   }
   .navbar-default .navbar-nav>li {
     border-bottom: 1px solid #e7e7e7;
