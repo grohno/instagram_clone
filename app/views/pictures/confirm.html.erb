@@ -1,30 +1,40 @@
-<h1>確認画面</h1>
+<h1 class="text-center">確認画面</h1>
+
 <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
 
-  <div class="field">
-    <p class="label">Title:</p>
-    <p><%= @picture.title %></p>
+  <ul class="picture_list row">
+    <li class="col-sm-12 col-md-10 col-md-offset-1 form">
+      <div class="field">
+        <p class="label">Title:</p>
+        <p><%= @picture.title %></p>
+      </div>
+
+      <div class="field">
+        <p class="label">Content:</p>
+        <p class="content"><%= @picture.content %></p>
+      </div>
+
+      <div class="field">
+        <p class="label">Image:</p>
+        <p><%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
+      </div>
+      <%= form.hidden_field :image_cache %>
+    </li>
+  </ul>
+
+  <div class="action text-center">
+    <%= form.submit "投稿する", class: "submit btn btn-info btn-lg" %>
   </div>
 
-  <div class="field">
-    <p class="label">Content:</p>
-    <p class="content"><%= @picture.content %></p>
-  </div>
 
-  <div class="field">
-    <p class="label">Image:</p>
-    <p><%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
-  </div>
 
-  <%= form.hidden_field :image_cache %>
-
-  <div class="actions">
-    <%= form.submit "投稿する" %>
-  </div>
 <% end %>
-<%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: "back" %>
-<% end %>
+
+<div class="text-center picture_show bottom_btn_block">
+  <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
+    <%= form.hidden_field :image_cache %>
+    <span class="material-icons">reply</span><%= form.submit "戻る", name: "back", class: "submit btn btn-info" %>
+  <% end %>
+</div>

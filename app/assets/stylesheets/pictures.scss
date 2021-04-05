@@ -72,7 +72,11 @@
 .picture_list li.form textarea {
   height: 140px;
 }
-
+.picture_list li.form .label {
+  color: #222;
+  display: block;
+  text-align: left;
+}
 
 
 @media only screen and (max-width: 767px){
